@@ -37,5 +37,31 @@ html,body {
     color: gray;
 }
 
+#preview{
+	position:absolute;
+	border:1px solid #ccc;
+	background:#333;
+	padding:5px;
+	display:none;
+	color:#fff;
+}
+
+#preview img{
+    width:400px;
+}
+
+ul,li{
+	margin:0;
+	padding:0;
+}
+
+li{
+	list-style:none;
+	float:left;
+	display:inline;
+	margin-right:10px;
+}
+
+
 
 
