@@ -22,8 +22,15 @@ this.imagePreview = function () {
     });
 };
 
-
 // starting the script on page load
 $(document).ready(function () {
     imagePreview();
 });
+
+function saveComments() {
+    if(!commentsFrom.nickname.value){
+        alert('请输入您的昵称');
+        return;
+    }
+    alert('谢谢你的留言');
+}

@@ -19,6 +19,17 @@ html,body {
     padding: 5px;
 }
 
+.header1 .left{
+    float:left;
+    text-align: left;
+}
+
+.header1 .right{
+    float:right;
+    text-align: right;
+}
+
+
 .carousel-image{
     height:450px;
     width:500px;
