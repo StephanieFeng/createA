@@ -137,6 +137,8 @@
             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#commentsModal">
                 给我们留言
             </button>
+            (共
+            <span id="totalCount"></span>条)
             <div class="modal fade" id="commentsModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
@@ -169,6 +171,11 @@
                     </div>
                 </div>
             </div>
+        </div>
+        <div id="page-content">
+            <div>正在加载数据...</div>
+        </div>
+        <div id="pagination-comments">
         </div>
         <div style="width:100%; clear:both; padding:5px;">
             <hr/>
