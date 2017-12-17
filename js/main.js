@@ -28,9 +28,21 @@ $(document).ready(function () {
 });
 
 function saveComments() {
-    if(!commentsFrom.nickname.value){
+    if (!commentsFrom.nickname.value) {
         alert('请输入您的昵称');
         return;
     }
-    alert('谢谢你的留言');
+    if (!commentsFrom.message.value) {
+        alert('请输入您的留言');
+        return;
+    }
+    var data = {
+        "name": commentsFrom.nickname.value,
+        "likeit": commentsFrom.likeit.value,
+        "message": commentsFrom.message.value
+    };
+    $.post("http://www.z2hacademy.cn/user/publish/W724-1501318062/comments/add/", data, function (data) {
+        alert('谢谢你的留言');
+    });
+
 }
