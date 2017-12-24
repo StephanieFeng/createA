@@ -43,12 +43,12 @@ function saveComments() {
     };
     $.post("http://www.z2hacademy.cn/user/publish/W984-1513502460/comments/add/", data, function (data) {
         alert('谢谢你的留言');
-        refreshComments();
+        refreshComments(0);
     });
 
 }
 
-var pageSize = 10;
+var pageSize = 3;
 var currentOffset = -1;
 function fillData(data) {
     $('#page-content').empty();
@@ -67,12 +67,31 @@ function fillData(data) {
     }
 }
 
-function refreshComments() {
+function fillPagination(data) {
+    var totalPages = Math.floor(data.total / pageSize) + 1;
+    $('#pagination-comments').twbsPagination({
+        totalPages: totalPages,
+        visiblePages: 7,
+        first: '第一页',
+        prev: '前一页',
+        next: '下一页',
+        last: '最后一页',
+        onPageClick: function (event, page) {
+            var offset = (page - 1) * pageSize;
+            if (offset == currentOffset) return;
+            else currentOffset=offset;
+            refreshComments(currentOffset);
+        }
+    });
+}
+
+function refreshComments(curoffset) {
     $.get("http://www.z2hacademy.cn/user/publish/W984-1513502460/comments/list/",
-        { offset: 0, count: pageSize },
+        { offset: curoffset, count: pageSize },
         function (data) {
             fillData(data);
+            fillPagination(data);
         });
 }
 
-$(refreshComments);
+$(function(){refreshComments(0);});
